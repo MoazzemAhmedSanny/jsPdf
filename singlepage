@@ -1,1 +1,24 @@
-Hello
+<!--pdf-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+ <button id="btn" style="color:red" class="btn btn-dark " ><span ><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;Download Pdf</span></button>
+
+<script>
+$(document).on('click','#btn',function(){
+var cvname = $("#cvname").val();
+
+let pdf = new jsPDF();
+let section=$('#pdf');
+let page= function() {
+    pdf.save(cvname+'_CV.pdf');
+   
+};
+pdf.addHTML(section,page);
+window.location.href = "{{url('/third')}}";
+})
+
+        </script>
